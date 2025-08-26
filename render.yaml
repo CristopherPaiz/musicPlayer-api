@@ -1,1 +1,9 @@
- 
+services:
+  - type: web
+    name: mi-app
+    env: node # o python, etc.
+    buildCommand: |
+      apt-get update && apt-get install -y ffmpeg
+      # tu comando de build normal aquí
+      npm install
+    startCommand: npm start
