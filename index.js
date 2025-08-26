@@ -16,8 +16,17 @@ const port = process.env.PORT || 3001;
 
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: [
+      "http://localhost:5173",
+      "https://music-crp.netlify.app",
+      "https://music-crp.netlify.app",
+      "https://www.music-crp.netlify.app",
+      "https://musicplayer-api-41kx.onrender.com",
+      process.env.FRONTEND_URL,
+    ].filter(Boolean),
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 app.use(express.json());
